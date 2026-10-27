@@ -1,6 +1,6 @@
 # MiniCPM-o offline benchmark runbook
 
-This page measures MiniCPM-o 4.5 offline serving in SGLang-Omni on one GPU. It also shows how to run the MiniCPM-o CI stages on a GPU pair. Full duplex serving is covered in the [Full-Duplex-Bench v1.5 runbook](full_duplex_bench.md).
+This page measures MiniCPM-o 4.5 offline serving in SGLang-Omni on one GPU. It also shows how to run the MiniCPM-o CI stages on a GPU pair. Full duplex serving is covered in the [Full-Duplex Guide](full_duplex_guide.md).
 
 Many commands end with a check that prints a fixed word in capitals, such as `READY` or `GPU_FREE`. If the word does not print, the step did not finish and its numbers are not usable.
 
@@ -87,7 +87,7 @@ docker run -d --init --ipc host --cap-add=SYS_PTRACE \
     -v "$BENCH_DIR/results:/results" \
     -v "$BENCH_DIR/sglang-omni:/sglang-omni" \
     --name omni-bench \
-    hongccc/sglang-omni@sha256:ebe4239e29a764ee3a2806385c061c5fd438a26f01458e503d3822dcba5790df \
+    hongccc/sglang-omni@sha256:06ed306707bcf3d9e9beb5ba7ce66f09a666cac11c23455ece50c34199c0e985 \
     sleep infinity
 ```
 
