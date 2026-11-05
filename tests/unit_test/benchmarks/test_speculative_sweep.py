@@ -485,6 +485,11 @@ def test_arguments_after_the_separator_go_to_the_client(monkeypatch) -> None:
         pytest.param("0", [*REQUIRED, "--order", "ABC"], id="unknown-leg"),
         pytest.param("0", [*REQUIRED, "--", "--port=9000"], id="client-port"),
         pytest.param("0", [*REQUIRED, "--", "--repeats", "1"], id="client-repeats"),
+        pytest.param("0", [*REQUIRED, "--concurrencies", "0"], id="zero-concurrency"),
+        pytest.param("0", [*REQUIRED, "--concurrencies", "1,1"], id="duplicate-load"),
+        pytest.param("0", [*REQUIRED, "--repeats", "0"], id="no-measured-pass"),
+        pytest.param("0", [*REQUIRED, "--max-samples", "0"], id="no-samples"),
+        pytest.param("0", [*REQUIRED, "--asr-concurrency", "0"], id="no-asr-slots"),
     ],
 )
 def test_the_sweep_refuses_to_start_on_a_bad_setup(
